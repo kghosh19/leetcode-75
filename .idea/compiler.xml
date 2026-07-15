@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="leetcode-75" />
         <module name="algorithms" />
+        <module name="java-concurrency" />
+        <module name="leetcode-75" />
         <module name="kafka-basics" />
         <module name="kafka-consumer-opensearch" />
         <module name="kafka-producer-wikimedia" />

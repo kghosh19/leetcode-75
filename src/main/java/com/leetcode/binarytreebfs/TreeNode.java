@@ -1,6 +1,7 @@
-package com.leetcode.binarytreedfs;
+package com.leetcode.binarytreebfs;
 
-public class TreeNode { int val;
+public class TreeNode {
+    int val;
    TreeNode left;
    TreeNode right;
    TreeNode() {}
