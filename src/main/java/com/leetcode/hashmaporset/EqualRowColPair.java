@@ -1,5 +1,6 @@
 package com.leetcode.hashmaporset;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,28 +8,23 @@ public class EqualRowColPair {
 
     public int equalPairs(int[][] grid) {
 
-        int n  = grid.length;
-        int count = 0;
-
         Map<String, Integer> rowFreqMap = new HashMap<>();
-        for(int i = 0; i < n; i++) {
-            StringBuilder rowString = new StringBuilder();
-            for (int j = 0; j < grid[0].length; j++) {
-                rowString.append(grid[i][j]).append(",");
-            }
-            String rStr = rowString.toString();
-            rowFreqMap.put(rStr, rowFreqMap.getOrDefault(rStr, 0) + 1);
+
+        for(int[] row: grid) {
+            String rString = Arrays.toString(row);
+            rowFreqMap.put(rString, rowFreqMap.getOrDefault(rString, 0) + 1);
         }
 
-        for(int i = 0; i < n; i++) {
-            StringBuilder colString = new StringBuilder();
-            for (int j = 0; j < n; j++) {
-                colString.append(grid[j][i]).append(",");
-            }
-            String cStr = colString.toString();
-            count += rowFreqMap.getOrDefault(cStr, 0);
-        }
+        int count = 0;
+        int n = grid.length;
 
+        for(int c = 0; c < n; c++) {
+            int[] col = new int[n];
+            for (int r = 0; r < n; r++) {
+                col[r] = grid[r][c];
+            }
+            count += rowFreqMap.getOrDefault(Arrays.toString(col), 0);
+        }
 
         return count;
     }
